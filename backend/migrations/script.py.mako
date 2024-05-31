@@ -6,7 +6,8 @@ Create Date: ${create_date}
 
 """
 from typing import Sequence, Union
-
+import db.types
+from models import enums
 from alembic import op
 import sqlalchemy as sa
 ${imports if imports else ""}

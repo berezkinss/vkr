@@ -12,9 +12,14 @@ class Settings(BaseSettings):
     DB_NAME: str
     DB_PORT: str
     SECRET: str
+
     @property
     def db_url(self):
-        return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+        return f"postgresql://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+
+    @property
+    def sync_db_url(self):
+        return f"postgresql://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
 
 
-settings = Settings()
+settings = Settings(_env_file='.env', _env_file_encoding='UTF-8')

@@ -1,0 +1,20 @@
+.container {
+    width: 100dvw;
+    height: 100dvh;
+    max-height: 100dvh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav {
+    width: 100%;
+    flex-grow: 0;
+}
+
+.content {
+    width: 250%;
+    height: 100%;
+    padding: 50px;
+    flex-grow: 1;
+}
+

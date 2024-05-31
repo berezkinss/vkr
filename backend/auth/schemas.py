@@ -1,37 +1,40 @@
-from typing import Optional
+from pydantic import BaseModel, ConfigDict, EmailStr
+from datetime import datetime
 
-from fastapi_users import schemas
+from models.enums import Role
 
 
-class UserRead(schemas.BaseUser[int]):
+class UserRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
     id: int
     name: str
     surname: str
-    role_id: int
-    created_at: str
-    deleted: bool
     email: str
+    created_at: datetime
+    deleted: bool
     is_active: bool = True
-    is_superuser: bool = False
-    is_verified: bool = False
-
-    class Config:
-        orm_mode = True
 
 
-class UserCreate(schemas.BaseUserCreate):
+class UserCreate(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
     name: str
     surname: str
-    role_id: int = 1
-    created_at: str
-    deleted: bool = False
-    email: str
+    email: EmailStr
     password: str
-    is_active: Optional[bool] = True
-    is_superuser: Optional[bool] = False
-    is_verified: Optional[bool] = False
 
 
-class UserUpdate(schemas.BaseUserUpdate):
+class TokenUserData(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    roles: list[Role]
+
+
+class TokenPair(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    access: str
+    refresh: str
+
+
+class UserUpdate(BaseModel):
     pass
 

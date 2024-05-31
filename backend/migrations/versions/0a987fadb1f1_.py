@@ -1,19 +1,20 @@
-"""Update
+"""empty message
 
-Revision ID: 8af8fd55dd4d
-Revises: 123f8db534f5
-Create Date: 2024-05-20 11:28:15.095878
+Revision ID: 0a987fadb1f1
+Revises: 1812b77bbbf0
+Create Date: 2024-05-27 21:44:59.442873
 
 """
 from typing import Sequence, Union
-
+import db.types
+from models import enums
 from alembic import op
 import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '8af8fd55dd4d'
-down_revision: Union[str, None] = '123f8db534f5'
+revision: str = '0a987fadb1f1'
+down_revision: Union[str, None] = '1812b77bbbf0'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 

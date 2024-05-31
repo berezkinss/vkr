@@ -1,0 +1,12 @@
+.tournament-card .mantine-Paper {
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tournament-card .mantine-Group .mantine-Button {
+  margin-left: auto;
+}
+
+.tournament-card .mantine-Text {
+  font-family: 'Arial', sans-serif;
+}
